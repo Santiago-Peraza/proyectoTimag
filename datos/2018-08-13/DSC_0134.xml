@@ -1,0 +1,26 @@
+<annotation>
+	<folder>2018-08-13</folder>
+	<filename>DSC_0134.JPG</filename>
+	<path>/home/carinata-datos/imagenes/2018-08-13/DSC_0134.JPG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>6000</width>
+		<height>4000</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cosecha</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>429</xmin>
+			<ymin>863</ymin>
+			<xmax>5197</xmax>
+			<ymax>3277</ymax>
+		</bndbox>
+	</object>
+</annotation>

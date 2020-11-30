@@ -1,0 +1,26 @@
+<annotation>
+	<folder>2018-08-13</folder>
+	<filename>DSC_0073.JPG</filename>
+	<path>/home/carinata-datos/imagenes/2018-08-13/DSC_0073.JPG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>6000</width>
+		<height>4000</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>planta</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1890</xmin>
+			<ymin>2309</ymin>
+			<xmax>2072</xmax>
+			<ymax>2513</ymax>
+		</bndbox>
+	</object>
+</annotation>
