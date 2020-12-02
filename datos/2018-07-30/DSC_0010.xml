@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Fotos 2018-08-07</folder>
+	<filename>DSC_0010.JPG</filename>
+	<path>/home/claib/Descargas/Tesis Schenck/Fotos 2018-08-07/DSC_0010.JPG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>6000</width>
+		<height>4000</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>piola</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>672</xmin>
+			<ymin>1692</ymin>
+			<xmax>5177</xmax>
+			<ymax>1717</ymax>
+		</bndbox>
+	</object>
+</annotation>
