@@ -25,7 +25,7 @@ def plotBndbox(img, archivoXML):
             width = xmax - xmin
             height = ymax - ymin
             #dibuja bounding box sobre la imagen
-            cv2.rectangle(img, (x, y), (x+width, y+height), (0, 0, 255), 1, cv2.LINE_AA)
+            cv2.rectangle(img, (x, y), (x+width, y+height), (0, 0, 255), 2, cv2.LINE_AA)
     return img
 
 
