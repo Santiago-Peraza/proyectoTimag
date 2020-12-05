@@ -20,6 +20,9 @@ image = imgO.copy()
 # imgO =cv2.imread('datos/2018-08-02/DSC_0097.JPG')
 # archivoXML = ET.parse('datos/2018-08-02/DSC_0097.xml')
 
+# Casos particulares
+# casosParticulares = ['datos/2018-07-21-23/DSC_0036.JPG','datos/2018-07-21-23/DSC_0103.JPG','datos/2018-07-30/DSC_0122.JPG','datos/2018-07-30/DSC_0411.JPG','datos/2018-08-02/DSC_0062.JPG','datos/2018-08-02/DSC_0038.JPG']
+
 
 #umbrales para color
 lowGreen_1 = np.array([43,70,0], np.uint8)
