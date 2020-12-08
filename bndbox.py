@@ -17,5 +17,5 @@ def bndbox(labelList, img):
         height = ymax - ymin
         width = xmax - xmin
         # print(label, xmin, ymin, width, height)
-        cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (255,0,0), 2, cv2.LINE_AA)
+        cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (0,0,255), 2, cv2.LINE_AA)
     return img

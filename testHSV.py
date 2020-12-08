@@ -5,11 +5,15 @@ import numpy as np
 from readXML import plotBndbox
 import xml.etree.ElementTree as ET 
 import matplotlib.pyplot as plt
+from bndbox import bndbox
+
+
+
 # 07/21-23
 imgO =cv2.imread('datos/2018-07-21-23/DSC_0076.JPG')
 archivoXML = ET.parse('datos/2018-07-21-23/DSC_0076.xml')
 
-
+testBox = imgO.copy()
 image = imgO.copy()
 
 # 07/30
@@ -87,9 +91,18 @@ segundaDilatacion =  cv2.dilate(dilate,kernel,iterations=3)
 _,segundaEtiqueta = cv2.connectedComponents(segundaDilatacion, connectivity=8)
 segundaLabel = cv2.bitwise_and(segundaEtiqueta.astype(np.uint8),dilate)
 # # labeled_img = cv2.cvtColor(labeled_img,cv2.COLOR_BGR2HSV)
+
+
+
+###################################
+a = bndbox(segundaLabel)
+cv2.rectangle(testBox,(a[0],a[1]),(a[0]+a[2],a[1]+a[3]), (255,0,0), 2, cv2.LINE_AA)
+
+
+###################################
 plt.figure()
 plt.title('la cosita del coso')
-plt.imshow(segundaLabel)
+plt.imshow(testBox)
 # plt.imshow(cv2.cvtColor(labeled_img, cv2.COLOR_BGR2RGB))
 prueba = segundaLabel.copy()
 contours,_ = cv2.findContours(segundaLabel, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
@@ -107,11 +120,11 @@ plt.figure()
 plt.title('contorno')
 plt.imshow(segundaLabel)
 plt.show()
-# cv2.namedWindow("original", cv2.WINDOW_NORMAL)       
-# cv2.resizeWindow("original", 800, 600)
-# cv2.imshow('original',dilate)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+cv2.namedWindow("original", cv2.WINDOW_NORMAL)       
+cv2.resizeWindow("original", 800, 600)
+cv2.imshow('original',dilate)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 cv2.imwrite('./example/boundingbox.jpg', bnd)
