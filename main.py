@@ -8,8 +8,14 @@ import matplotlib.pyplot as plt
 
 from bndbox import bndbox
 # 07/21-23
-imgO =cv2.imread('datos/2018-07-21-23/DSC_0076.JPG')
-archivoXML = ET.parse('datos/2018-07-21-23/DSC_0076.xml')
+path = 'datos/2018-07-21-23/'
+
+#nombre de la imagen
+name = 'DSC_0076.JPG'
+imgO =cv2.imread(path+name)
+ 
+#archivo xml
+archivoXML = ET.parse(path+'DSC_0076.xml')
 
 testBox = imgO.copy()
 image = imgO.copy()
@@ -58,24 +64,21 @@ dilate = cv2.morphologyEx(andMask, cv2.MORPH_OPEN, kernel)
 # colorizo deteecciones 
 and_delate = cv2.bitwise_and(image,image, mask=dilate)
 
-
+#dilatacion por segunda vez para mejorar etiquetado
 segundaDilatacion =  cv2.dilate(dilate,kernel,iterations=3)
+#obtengo etiquetado
 _,segundaEtiqueta = cv2.connectedComponents(segundaDilatacion, connectivity=8)
+# obtengo etiquetado
 segundaLabel = cv2.bitwise_and(segundaEtiqueta,segundaEtiqueta, mask=dilate)
 
 
 ###################################
+# genero bounding box sogre la imagen testBox y almaceno en bndAutomatico
 bndAutomatico = bndbox(segundaLabel, testBox)
 
 
 
 ###################################
-
-# cv2.namedWindow("original", cv2.WINDOW_NORMAL)       
-# cv2.resizeWindow("original", 800, 600)
-# cv2.imshow('original',segundaLabel)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
 
 
 
@@ -87,6 +90,6 @@ ax2.imshow(segundaLabel)
 
 plt.show()
 
-cv2.imwrite('./example/boundingbox.jpg', bndAutomatico)
+cv2.imwrite('./example/'+name+'_boundingbox.jpg', bndAutomatico)
 # cv2.imwrite('./example/segmentation.jpg', andMask)
 # cv2.imwrite('./example/contours.jpg', img)
