@@ -1,9 +1,9 @@
 import numpy as np
 import cv2
 
-def bndbox(labelList, img):
+def bndbox(labelList, img, fill):
     labels = np.delete(np.unique(labelList),0)
-    
+    thickness = -10
     
     for label in labels:
         
@@ -17,5 +17,9 @@ def bndbox(labelList, img):
         height = ymax - ymin
         width = xmax - xmin
         # print(label, xmin, ymin, width, height)
-        cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (0,0,255), 2, cv2.LINE_AA)
+        if fill == False:
+            cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (0,0,255), 2, cv2.LINE_AA)
+        else:
+            cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (0,0,255),thickness)
     return img
+            
