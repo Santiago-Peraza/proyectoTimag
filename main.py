@@ -74,6 +74,8 @@ segundaLabel = cv2.bitwise_and(segundaEtiqueta,segundaEtiqueta, mask=dilate)
 
 ###################################
 # genero bounding box sogre la imagen testBox y almaceno en bndAutomatico
+
+# si fill == True rellena los rectangulos
 bndAutomatico = bndbox(segundaLabel, testBox, False)
 
 ###################################
