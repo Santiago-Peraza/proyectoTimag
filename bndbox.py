@@ -3,7 +3,7 @@ import cv2
 
 def bndbox(labelList, img, fill):
     labels = np.delete(np.unique(labelList),0)
-    thickness = -10
+    thickness = -1
     
     for label in labels:
         
@@ -20,6 +20,7 @@ def bndbox(labelList, img, fill):
         if fill == False:
             cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (0,0,255), 2, cv2.LINE_AA)
         else:
-            cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (0,0,255),thickness)
+            cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (255,255,255),thickness)
+            
     return img
             

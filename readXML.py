@@ -4,13 +4,15 @@ import cv2
 
 
 
-def plotBndbox(img, archivoXML):
+def plotBndbox(img, archivoXML, fill):
     """Recibe como parametros <imagen> y <archivo xml> 
     Devuelve  imagen con bounding box dibujados"""
     #encuentra la raiz del xml
     raiz =  archivoXML.getroot()
     #busca todos los 'object'
     hijos = raiz.findall('object')
+    #set para rellenar bndbox
+    thickness = -1
     #itera sobre los objetos extrayendo las dimensiones
     for i in hijos:
         if i.find('name').text == 'planta':
@@ -25,7 +27,10 @@ def plotBndbox(img, archivoXML):
             width = xmax - xmin
             height = ymax - ymin
             #dibuja bounding box sobre la imagen
-            cv2.rectangle(img, (x, y), (x+width, y+height), (0, 0, 255), 2, cv2.LINE_AA)
+            if fill == False:
+                cv2.rectangle(img, (x, y), (x+width, y+height), (0, 0, 255), 2, cv2.LINE_AA)
+            else:
+                cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (255,255,255),thickness)
     return img
 
 

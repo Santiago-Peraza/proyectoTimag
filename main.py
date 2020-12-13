@@ -5,8 +5,10 @@ import numpy as np
 from readXML import plotBndbox
 import xml.etree.ElementTree as ET 
 import matplotlib.pyplot as plt
-
 from bndbox import bndbox
+from cropped import cropped
+
+
 # 07/21-23
 path = 'datos/2018-07-21-23/'
 
@@ -34,7 +36,7 @@ image = imgO.copy()
 
 #umbrales para color
 lowGreen_1 = np.array([43,60,0], np.uint8)
-highGreen_1 = np.array([75,255,255], np.uint8)
+highGreen_1 = np.array([80,255,255], np.uint8)
 
 #umbrales para forma
 lowGreen_2 = np.array([10,0,0], np.uint8)
@@ -93,3 +95,44 @@ plt.show()
 cv2.imwrite('./example/'+name+'_boundingbox.jpg', bndAutomatico)
 # cv2.imwrite('./example/segmentation.jpg', andMask)
 # cv2.imwrite('./example/contours.jpg', img)
+
+bndboxByXML = np.zeros(image.shape,  np.uint8)
+bndboxByXML = plotBndbox(bndboxByXML,archivoXML,True)
+bndboxByXML = cv2.cvtColor(bndboxByXML,cv2.COLOR_RGB2GRAY)
+
+xmin,ymin,xmax,ymax = cropped(bndboxByXML)
+
+bndboxByXML = bndboxByXML[ymin:ymax,xmin:xmax]
+bndboxByColor = np.zeros(image.shape,  np.uint8)
+bndboxByColor = bndbox(segundaLabel, bndboxByColor,True)
+bndboxByColor = cv2.cvtColor(bndboxByColor,cv2.COLOR_RGB2GRAY)
+bndboxByColor = bndboxByColor[ymin:ymax,xmin:xmax]
+
+andbndbox  = cv2.bitwise_and(bndboxByColor,bndboxByXML)
+orbndbox = cv2.bitwise_or(bndboxByXML,bndboxByXML)
+
+verdaderoPositivo = andbndbox
+
+falsoPositivo= cv2.bitwise_and(cv2.bitwise_not(bndboxByXML), bndboxByColor)
+
+falsoNegativo = cv2.bitwise_and(bndboxByXML, cv2.bitwise_not(bndboxByColor))
+
+verdaderoNegativo = cv2.bitwise_and(cv2.bitwise_not(bndboxByXML) , cv2.bitwise_not(bndboxByColor))
+
+
+plt.figure()
+plt.imshow(verdaderoPositivo)
+plt.title('VP')
+plt.figure()
+plt.imshow(verdaderoNegativo)
+plt.title('VN')
+plt.figure()
+plt.imshow(falsoPositivo)
+plt.title('FP')
+plt.figure()
+plt.imshow(falsoNegativo)
+plt.title('FN')
+
+sensibilidad = np.count_nonzero(verdaderoPositivo)/(np.count_nonzero(verdaderoPositivo)+ np.count_nonzero(falsoNegativo))
+
+especificidad = np.count_nonzero(verdaderoNegativo)/(np.count_nonzero(verdaderoNegativo)+ np.count_nonzero(falsoPositivo))
