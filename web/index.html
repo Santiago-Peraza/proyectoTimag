@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Tratamiento de Imágenes por Computadora</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Introducción</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#datos">Datos disponibles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#metodologia">Metodología</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#resultados">Resultados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#futuro">Trabajo futuro</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Procesamiento de imágenes sobre cultivos de Brassica Carinata</h1>
+      <p class="lead">Facultad de Ingeniería - UDELAR</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Introducción</h2>
+          <p class="lead">
+            Brassica Carinata es una especie oleaginosa invernal, del genero Brassicaceae con origen en las tierras altas de Etiopía. Dentro de sus usos comunes se encuentran la alimentación a partir de sus hojas y la producción de condimentos o aceites utilizando sus semillas. 
+            </p>
+            <p class="lead">
+            En Uruguay, su incorporación al sistema productivo es reciente, pero dado un escaso desarrollo a nivel mundial del cultivo, nuestro país se posiciona como pionero a nivel productivo y científico del mismo. Aproximadamente se cuentan con 30 mil hectáreas de cultivo, siendo UPM uno de los agentes impulsores del mismo debido a su producción de biocombustibles.
+            </p>
+            <p class="lead">
+            El área de Producción Vegetal de la Estación Experimental Mario A. Cassinoni en Paysandú, realizó una investigación que buscaba obtener información sobre la optimización y estimación de los cultivos. Para ello, realizaron plantaciones en parselas con dos configuraciones, variando la distancia de los surcos en los que se cultivan las plantas. En conjunto con el departamento de Ingenería Biológica, trabajaron utilizando imágenes de las parselas germinadas, para así obtener la correspondencia de las plantas en cada estadío, detectando la posición de las mismas de forma manual. 
+           </p>
+           <p class="lead">
+            Este proyecto busca hacer uso de las técnicas de procesamiento de imágenes con el objetivo de automatizar la deteccion de plantas 
+           </p>
+           <p>
+            Dado el marco en el cuál las imágenes fueron capturadas, se toma como objetivo general del presente proyecto la detección de plantas en los estadíos en los cuales aún pueden ser identificadas de forma independiente. Como objetivo específico, se busca realizar el bounding box de cada planta detectada. 
+           </p>
+
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="datos" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Datos disponibles</h2>
+          <p class="lead">
+            Con el fin de investigar la optimización y estimación de diferentes configuraciones de plantación, se generan 24 parcelas de pruebas. Doce de las mismas corresponden a cultivos distanciados con surcos de 34 cm, y las doce restantes se encuentran a 17cm. 
+            </p>
+          <p class="lead">
+            Para realizar el seguimiento de cada planta, se toman imagenes de las parselas en diferentes estadíos para luego medir la cantidad de germinaciones y su ubicación exacta.
+          </p>
+          <p class="lead">
+            Los datos a utilizar corresponden a 10 registros fotográficos temporales en diferentes etapas del cultivo. Estos fueron capturados siguiendo un protocolo de adquisición que incluía la distancia focal, la resolución de la imágen (6000x 4000megapíxeles), altura, encuadre, orientación, horario de caputa, entre otras.
+          </p>
+          <p class="lead">
+            Los estadíos están compuestos por 24 parcelas, donde se encuentran 3 bloques con 8 repeticiones, a dos distancias entre surcos de plantado diferentes.  
+          </p>
+          <p class="lead">
+            Se poseen 48 imágenes por estadío temporal, dos por parcela. Dentro de los registros, tres de los mismos disponen de información adicional que incluye el etiquetado manual de las plantas encontradas.
+          </p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodologia">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Metodología</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultados">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Resultados</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="futuro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Trabajo futuro</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white"> Santiago Peraza - Vanessa Yelós </p>
+      <p class="m-0 text-center text-white">2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
