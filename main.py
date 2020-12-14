@@ -14,11 +14,11 @@ import matplotlib.gridspec as gridspec
 path = 'datos/2018-07-21-23/'
 
 #nombre de la imagen
-name = 'DSC_0076.JPG'
+name = 'DSC_0419.JPG'
 imgO =cv2.imread(path+name)
  
 #archivo xml
-archivoXML = ET.parse(path+'DSC_0076.xml')
+archivoXML = ET.parse(path+'DSC_0419.xml')
 
 testBox = imgO.copy()
 image = imgO.copy()
@@ -32,8 +32,13 @@ image = imgO.copy()
 # archivoXML = ET.parse('datos/2018-08-02/DSC_0097.xml')
 
 # Casos particulares
-# casosParticulares = ['datos/2018-07-21-23/DSC_0036.JPG','datos/2018-07-21-23/DSC_0103.JPG','datos/2018-07-30/DSC_0122.JPG','datos/2018-07-30/DSC_0411.JPG','datos/2018-08-02/DSC_0062.JPG','datos/2018-08-02/DSC_0038.JPG']
+# casosParticulares = ['datos/2018-07-21-23/DSC_0001.JPG','datos/2018-07-21-23/DSC_0036.JPG','datos/2018-07-21-23/DSC_0103.JPG','datos/2018-07-21-23/DSC_0157.JPG','datos/2018-08-02/DSC_0062.JPG','datos/2018-08-02/DSC_0083.JPG','datos/2018-07-21-23/DSC_0331.JPG','datos/2018-07-21-23/DSC_0352.JPG']
+# xmlCasosParticulares = ['datos/2018-07-21-23/DSC_0001.xml','datos/2018-07-21-23/DSC_0036.xml','datos/2018-07-21-23/DSC_0103.xml','datos/2018-07-21-23/DSC_0157.xml','datos/2018-08-02/DSC_0062.xml','datos/2018-08-02/DSC_0083.xml','datos/2018-07-21-23/DSC_0331.xml','datos/2018-07-21-23/DSC_0352.xml']
 
+
+# Imagenes buenas
+# buenas = ['datos/2018-07-21-23/DSC_0017.JPG','datos/2018-07-21-23/DSC_0286.JPG','datos/2018-07-21-23/DSC_0309.JPG','datos/2018-07-21-23/DSC_0401.JPG','datos/2018-07-21-23/DSC_0437.JPG', 'datos/2018-08-02/DSC_0010.JPG','datos/2018-08-02/DSC_0105.JPG','datos/2018-08-02/DSC_0106.JPG','datos/2018-08-02/DSC_0190.JPG','datos/2018-08-02/DSC_0208.JPG','datos/2018-08-02/DSC_0276.JPG','datos/2018-08-02/DSC_0347.JPG']
+# xmlBuenas = ['datos/2018-07-21-23/DSC_0017.xml','datos/2018-07-21-23/DSC_0286.xml','datos/2018-07-21-23/DSC_0309.xml','datos/2018-07-21-23/DSC_0401.xml','datos/2018-07-21-23/DSC_0437.xml', 'datos/2018-08-02/DSC_0010.xml','datos/2018-08-02/DSC_0105.xml','datos/2018-08-02/DSC_0106.xml','datos/2018-08-02/DSC_0190.xml','datos/2018-08-02/DSC_0208.xml','datos/2018-08-02/DSC_0276.xml','datos/2018-08-02/DSC_0347.xml']
 
 #umbrales para color
 lowGreen_1 = np.array([43,60,0], np.uint8)
@@ -128,26 +133,31 @@ fig= plt.figure(figsize=(15, 15))
 G = gridspec.GridSpec(nrows=2, ncols=3, wspace=0.2, hspace= 0.3)
 
 ax1 = plt.subplot(G[0,0])
+plt.imshow(imgO, 'gray')
+plt.setp(ax1, title=u'Imágen parsela')
+plt.axis("off")
+
+ax1 = plt.subplot(G[0,1])
 plt.imshow(verdaderoPositivo, 'gray')
 plt.setp(ax1, title=u'Verdaderos positivos')
 plt.axis("off")
 
-ax2 = plt.subplot(G[0,1])
+ax2 = plt.subplot(G[0,2])
 plt.imshow(verdaderoNegativo, 'gray')
 plt.setp(ax2, title=u'Verdaderos negativos')
 plt.axis("off")
 
-ax3= plt.subplot(G[0,2])
+ax3= plt.subplot(G[1,0])
 plt.imshow(falsoPositivo, 'gray')
 plt.setp(ax3, title=u'Falsos positivos')
 plt.axis("off")
 
-ax4 = plt.subplot(G[1,0])
+ax4 = plt.subplot(G[1,1])
 plt.imshow(falsoNegativo, 'gray')
 plt.setp(ax4, title=u'Falsos negativos')
 plt.axis("off")
 
-ax5 = plt.subplot(G[1,1])
+ax5 = plt.subplot(G[1,2])
 ax5.text(0.3,0.5, "Sensibilidad = {:.2f} ".format(sensibilidad,2))
 ax5.text(0.3,0.4, "Especificidad = {:.2f} ".format(especificidad,2))
 plt.axis("off")
