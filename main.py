@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 from bndbox import bndbox
 from cropped import cropped
+import matplotlib.gridspec as gridspec
 
 
 # 07/21-23
@@ -119,20 +120,38 @@ falsoNegativo = cv2.bitwise_and(bndboxByXML, cv2.bitwise_not(bndboxByColor))
 
 verdaderoNegativo = cv2.bitwise_and(cv2.bitwise_not(bndboxByXML) , cv2.bitwise_not(bndboxByColor))
 
-
-plt.figure()
-plt.imshow(verdaderoPositivo)
-plt.title('VP')
-plt.figure()
-plt.imshow(verdaderoNegativo)
-plt.title('VN')
-plt.figure()
-plt.imshow(falsoPositivo)
-plt.title('FP')
-plt.figure()
-plt.imshow(falsoNegativo)
-plt.title('FN')
-
 sensibilidad = np.count_nonzero(verdaderoPositivo)/(np.count_nonzero(verdaderoPositivo)+ np.count_nonzero(falsoNegativo))
 
 especificidad = np.count_nonzero(verdaderoNegativo)/(np.count_nonzero(verdaderoNegativo)+ np.count_nonzero(falsoPositivo))
+
+fig= plt.figure(figsize=(15, 15))
+G = gridspec.GridSpec(nrows=2, ncols=3, wspace=0.2, hspace= 0.3)
+
+ax1 = plt.subplot(G[0,0])
+plt.imshow(verdaderoPositivo, 'gray')
+plt.setp(ax1, title=u'Verdaderos positivos')
+plt.axis("off")
+
+ax2 = plt.subplot(G[0,1])
+plt.imshow(verdaderoNegativo, 'gray')
+plt.setp(ax2, title=u'Verdaderos negativos')
+plt.axis("off")
+
+ax3= plt.subplot(G[0,2])
+plt.imshow(falsoPositivo, 'gray')
+plt.setp(ax3, title=u'Falsos positivos')
+plt.axis("off")
+
+ax4 = plt.subplot(G[1,0])
+plt.imshow(falsoNegativo, 'gray')
+plt.setp(ax4, title=u'Falsos negativos')
+plt.axis("off")
+
+ax5 = plt.subplot(G[1,1])
+ax5.text(0.3,0.5, "Sensibilidad = {:.2f} ".format(sensibilidad,2))
+ax5.text(0.3,0.4, "Especificidad = {:.2f} ".format(especificidad,2))
+plt.axis("off")
+
+plt.draw()
+
+
