@@ -11,14 +11,14 @@ import matplotlib.gridspec as gridspec
 
 
 # 07/21-23
-path = 'datos/2018-07-21-23/'
+path = 'datos/2018-08-02/'
 
 #nombre de la imagen
-name = 'DSC_0419.JPG'
+name = 'DSC_0083.JPG'
 imgO =cv2.imread(path+name)
  
 #archivo xml
-archivoXML = ET.parse(path+'DSC_0419.xml')
+archivoXML = ET.parse(path+'DSC_0083.xml')
 
 testBox = imgO.copy()
 image = imgO.copy()
@@ -129,39 +129,62 @@ sensibilidad = np.count_nonzero(verdaderoPositivo)/(np.count_nonzero(verdaderoPo
 
 especificidad = np.count_nonzero(verdaderoNegativo)/(np.count_nonzero(verdaderoNegativo)+ np.count_nonzero(falsoPositivo))
 
-fig= plt.figure(figsize=(15, 15))
-G = gridspec.GridSpec(nrows=2, ncols=3, wspace=0.2, hspace= 0.3)
+# fig= plt.figure(figsize=(15, 15))
+# G = gridspec.GridSpec(nrows=2, ncols=3, wspace=0.2, hspace= 0.3)
 
-ax1 = plt.subplot(G[0,0])
-plt.imshow(imgO, 'gray')
-plt.setp(ax1, title=u'Imágen parsela')
-plt.axis("off")
+# ax0 = plt.subplot(G[0,0])
+# plt.imshow(imgO, 'gray')
+# plt.setp(ax0, title=u'Imágen parsela')
+# plt.axis("off")
 
-ax1 = plt.subplot(G[0,1])
+# ax1 = plt.subplot(G[0,1])
+# plt.imshow(verdaderoPositivo, 'gray')
+# plt.setp(ax1, title=u'Verdaderos positivos')
+# plt.axis("off")
+
+# ax2 = plt.subplot(G[0,2])
+# plt.imshow(verdaderoNegativo, 'gray')
+# plt.setp(ax2, title=u'Verdaderos negativos')
+# plt.axis("off")
+
+# ax3= plt.subplot(G[1,0])
+# plt.imshow(falsoPositivo, 'gray')
+# plt.setp(ax3, title=u'Falsos positivos')
+# plt.axis("off")
+
+# ax4 = plt.subplot(G[1,1])
+# plt.imshow(falsoNegativo, 'gray')
+# plt.setp(ax4, title=u'Falsos negativos')
+# plt.axis("off")
+
+# ax5 = plt.subplot(G[1,2])
+# ax5.text(0.3,0.5, "Sensibilidad = {:.2f} ".format(sensibilidad,2))
+# ax5.text(0.3,0.4, "Especificidad = {:.2f} ".format(especificidad,2))
+# plt.axis("off")
+
+# plt.draw()
+
+plt.figure()
+plt.subplot(121)
 plt.imshow(verdaderoPositivo, 'gray')
-plt.setp(ax1, title=u'Verdaderos positivos')
+plt.title('Verdaderos positivos')
 plt.axis("off")
 
-ax2 = plt.subplot(G[0,2])
+plt.subplot(122)
 plt.imshow(verdaderoNegativo, 'gray')
-plt.setp(ax2, title=u'Verdaderos negativos')
+plt.title('Verdaderos negativos')
 plt.axis("off")
+plt.savefig('./example/'+'res1_'+str(name)[:-4]+'.png', bbox_inches='tight')
 
-ax3= plt.subplot(G[1,0])
+plt.figure()
+plt.subplot(121)
 plt.imshow(falsoPositivo, 'gray')
-plt.setp(ax3, title=u'Falsos positivos')
+plt.title('Falsos positivos')
 plt.axis("off")
 
-ax4 = plt.subplot(G[1,1])
+plt.subplot(122)
 plt.imshow(falsoNegativo, 'gray')
-plt.setp(ax4, title=u'Falsos negativos')
+plt.title('Falsos negativos')
 plt.axis("off")
-
-ax5 = plt.subplot(G[1,2])
-ax5.text(0.3,0.5, "Sensibilidad = {:.2f} ".format(sensibilidad,2))
-ax5.text(0.3,0.4, "Especificidad = {:.2f} ".format(especificidad,2))
-plt.axis("off")
-
-plt.draw()
-
+plt.savefig('./example/'+'res2_'+str(name)[:-4]+'.png', bbox_inches='tight')
 
