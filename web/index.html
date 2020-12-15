@@ -88,19 +88,19 @@
     </div>
   </section>
 
-  <section id="datos" class="bg-light">
+  <section id="datos" class="bg-dark">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2>Datos disponibles</h2>
-          <p class="lead">
+        <div class="col-lg-8 mx-auto text-light">
+          <h2 >Datos disponibles</h2>
+          <p class = 'lead'>
             Con el fin de investigar la optimización y estimación de diferentes configuraciones de plantación, se generan 24 parcelas de pruebas. Doce de las mismas corresponden a cultivos distanciados con surcos de 34 cm, y las doce restantes se encuentran a 17cm. 
             </p>
           <p class="lead">
             Para realizar el seguimiento de cada planta, se toman imagenes de las parselas en diferentes estadíos para luego medir la cantidad de germinaciones y su ubicación exacta.
           </p>
           <p class="lead">
-            Los datos a utilizar corresponden a 10 registros fotográficos temporales en diferentes etapas del cultivo. Estos fueron capturados siguiendo un protocolo de adquisición que incluía la distancia focal, la resolución de la imágen (6000x 4000megapíxeles), altura, encuadre, orientación, horario de caputa, entre otras.
+            Los datos a utilizar corresponden a 10 registros fotográficos temporales en diferentes etapas del cultivo. Estos fueron capturados siguiendo un protocolo de adquisición que incluía la distancia focal, la resolución de la imágen (6000 x 4000 píxeles), altura, encuadre, orientación, horario de captura, entre otras.
           </p>
           <p class="lead">
             Los estadíos están compuestos por 24 parcelas, donde se encuentran 3 bloques con 8 repeticiones, a dos distancias entre surcos de plantado diferentes.  
@@ -118,21 +118,28 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2>Metodología</h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
-
+          <p class="lead ">Dado que la base de datos de imágenes presentan variedades considerables en la iluminación, se acotaron un grupo reducido de las mismas con el objetivo de realizar una prueba de concepto del desarrollo.</p>
+          <p>ACA VAN IMAGENES DE EJEMPLO</p>
+          <p class="lead">
+            Cada imagen utilizada en esta aproximacion al problema cuenta con un archivo XML con  los datos de etiquetado de plantas sobre la imagen realizados por un experto. 
+          </p>
+          <p>ACA VAN IMAGENES DE EJEMPLO boundign box de agronomo</p>
+          <p class = 'lead'>Se realiza una segmentación por color verde utilizando el espacio de color HSV para una mejor aproximación a al rango del mismo.
+            Se considera el caso optmo de color y un caso con margenes extendidos buscando tener en cuenta valores hacia los tonos amarillos buscnado abarcar algunos casos particulares.
+            A través del uso de morfología matemática  y operaciones lógicas se obtiene una primera segmentación de información.
+            </p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <section id="resultados">
+  <section id="resultados" class = "bg-dark text-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>Resultados</h2>
+          <h2 class = "text-light">Resultados</h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
-
         </div>
       </div>
     </div>
