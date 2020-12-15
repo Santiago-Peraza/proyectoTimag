@@ -33,16 +33,18 @@
             <a class="nav-link js-scroll-trigger" href="#about">Introducción</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Datos disponibles</a>
+
+            <a class="nav-link js-scroll-trigger" href="#datos">Datos disponibles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Metodología</a>
+            <a class="nav-link js-scroll-trigger" href="#metodologia">Metodología</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Resultados</a>
+            <a class="nav-link js-scroll-trigger" href="#resultados">Resultados</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Trabajo futuro</a>
+            <a class="nav-link js-scroll-trigger" href="#futuro">Trabajo futuro</a>
+
           </li>
 
         </ul>
@@ -53,7 +55,9 @@
   <header class="bg-primary text-white">
     <div class="container text-center">
       <h1>Procesamiento de imágenes sobre cultivos de Brassica Carinata</h1>
-      <p class="lead">Facultad de Ingeniería - UdelaR</p>
+
+      <p class="lead">Facultad de Ingeniería - UDELAR</p>
+
     </div>
   </header>
 
@@ -61,37 +65,86 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>About this page</h2>
-          <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-          <ul>
-            <li>Clickable nav links that smooth scroll to page sections</li>
-            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-          </ul>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+          <h2>Introducción</h2>
+          <p class="lead">
+            Brassica Carinata es una especie oleaginosa invernal, del genero Brassicaceae con origen en las tierras altas de Etiopía. Dentro de sus usos comunes se encuentran la alimentación a partir de sus hojas y la producción de condimentos o aceites utilizando sus semillas. 
+            </p>
+            <p class="lead">
+            En Uruguay, su incorporación al sistema productivo es reciente, pero dado un escaso desarrollo a nivel mundial del cultivo, nuestro país se posiciona como pionero a nivel productivo y científico del mismo. Aproximadamente se cuentan con 30 mil hectáreas de cultivo, siendo UPM uno de los agentes impulsores del mismo debido a su producción de biocombustibles.
+            </p>
+            <p class="lead">
+            El área de Producción Vegetal de la Estación Experimental Mario A. Cassinoni en Paysandú, realizó una investigación que buscaba obtener información sobre la optimización y estimación de los cultivos. Para ello, realizaron plantaciones en parselas con dos configuraciones, variando la distancia de los surcos en los que se cultivan las plantas. En conjunto con el departamento de Ingenería Biológica, trabajaron utilizando imágenes de las parselas germinadas, para así obtener la correspondencia de las plantas en cada estadío, detectando la posición de las mismas de forma manual. 
+           </p>
+           <p class="lead">
+            Este proyecto busca hacer uso de las técnicas de procesamiento de imágenes con el objetivo de automatizar la deteccion de plantas 
+           </p>
+           <p>
+            Dado el marco en el cuál las imágenes fueron capturadas, se toma como objetivo general del presente proyecto la detección de plantas en los estadíos en los cuales aún pueden ser identificadas de forma independiente. Como objetivo específico, se busca realizar el bounding box de cada planta detectada. 
+           </p>
+
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="datos" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Datos disponibles</h2>
+          <p class="lead">
+            Con el fin de investigar la optimización y estimación de diferentes configuraciones de plantación, se generan 24 parcelas de pruebas. Doce de las mismas corresponden a cultivos distanciados con surcos de 34 cm, y las doce restantes se encuentran a 17cm. 
+            </p>
+          <p class="lead">
+            Para realizar el seguimiento de cada planta, se toman imagenes de las parselas en diferentes estadíos para luego medir la cantidad de germinaciones y su ubicación exacta.
+          </p>
+          <p class="lead">
+            Los datos a utilizar corresponden a 10 registros fotográficos temporales en diferentes etapas del cultivo. Estos fueron capturados siguiendo un protocolo de adquisición que incluía la distancia focal, la resolución de la imágen (6000x 4000megapíxeles), altura, encuadre, orientación, horario de caputa, entre otras.
+          </p>
+          <p class="lead">
+            Los estadíos están compuestos por 24 parcelas, donde se encuentran 3 bloques con 8 repeticiones, a dos distancias entre surcos de plantado diferentes.  
+          </p>
+          <p class="lead">
+            Se poseen 48 imágenes por estadío temporal, dos por parcela. Dentro de los registros, tres de los mismos disponen de información adicional que incluye el etiquetado manual de las plantas encontradas.
+          </p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodologia">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Metodología</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+
         </div>
       </div>
     </div>
   </section>
 
-  <section id="services" class="bg-light">
+
+  <section id="resultados">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>Services we offer</h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+          <h2>Resultados</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+
+  <section id="futuro">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>Contact us</h2>
+          <h2>Trabajo futuro</h2>
+
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
         </div>
       </div>
@@ -101,7 +154,10 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+
+      <p class="m-0 text-center text-white"> Santiago Peraza - Vanessa Yelós </p>
+      <p class="m-0 text-center text-white">2020</p>
+
     </div>
     <!-- /.container -->
   </footer>
