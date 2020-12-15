@@ -1,0 +1,7 @@
+I1 = datos/2018-07-21-23/DSC_0419.JPG (buena)
+
+I2 = datos/2018-08-02/DSC_0347.JPG (buena)
+
+I3 = datos/2018-07-21-23/DSC_0199.JPG (mala)
+
+I4 = datos/2018-08-02/DSC_0083.JPG (mala)
