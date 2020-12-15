@@ -11,14 +11,14 @@ import matplotlib.gridspec as gridspec
 
 
 # 07/21-23
-path = 'datos/2018-08-02/'
+path = 'datos/2018-07-21-23/'
 
 #nombre de la imagen
-name = 'DSC_0083.JPG'
+name = 'DSC_0103.JPG'
 imgO =cv2.imread(path+name)
  
 #archivo xml
-archivoXML = ET.parse(path+'DSC_0083.xml')
+archivoXML = ET.parse(path+'DSC_0103.xml')
 
 testBox = imgO.copy()
 image = imgO.copy()
@@ -85,7 +85,7 @@ segundaLabel = cv2.bitwise_and(segundaEtiqueta,segundaEtiqueta, mask=dilate)
 
 # si fill == True rellena los rectangulos
 bndAutomatico = bndbox(segundaLabel, testBox, False)
-
+bndXML = bndbox(archivoXML, testBox, False)
 ###################################
 
 
@@ -96,11 +96,13 @@ ax1.imshow(bndAutomatico)
 ax2.set_title('Original')
 ax2.imshow(segundaLabel)
 
-plt.show()
+# plt.show()
 
 cv2.imwrite('./example/'+name+'_boundingbox.jpg', bndAutomatico)
+cv2.imwrite('./example/'+name+'_boundingboxXML.jpg', bndXML)
 # cv2.imwrite('./example/segmentation.jpg', andMask)
 # cv2.imwrite('./example/contours.jpg', img)
+
 
 bndboxByXML = np.zeros(image.shape,  np.uint8)
 bndboxByXML = plotBndbox(bndboxByXML,archivoXML,True)
@@ -174,7 +176,7 @@ plt.subplot(122)
 plt.imshow(verdaderoNegativo, 'gray')
 plt.title('Verdaderos negativos')
 plt.axis("off")
-plt.savefig('./example/'+'res1_'+str(name)[:-4]+'.png', bbox_inches='tight')
+plt.savefig('./example/'+str(name)[:-4]+'_res1.png', bbox_inches='tight')
 
 plt.figure()
 plt.subplot(121)
@@ -186,5 +188,5 @@ plt.subplot(122)
 plt.imshow(falsoNegativo, 'gray')
 plt.title('Falsos negativos')
 plt.axis("off")
-plt.savefig('./example/'+'res2_'+str(name)[:-4]+'.png', bbox_inches='tight')
+plt.savefig('./example/'+str(name)[:-4]+'_res2.png', bbox_inches='tight')
 
