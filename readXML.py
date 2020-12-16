@@ -1,8 +1,11 @@
 import xml.etree.ElementTree as ET 
 
 import cv2
+import matplotlib.pyplot as plt
 
+file = ['datos/2018-07-21-23/DSC_0076.JPG','datos/2018-08-02/DSC_0347.JPG', 'datos/2018-07-21-23/DSC_0103.JPG','datos/2018-08-02/DSC_0083.JPG' ]
 
+xml = ['datos/2018-07-21-23/DSC_0076.xml','datos/2018-08-02/DSC_0347.xml', 'datos/2018-07-21-23/DSC_0103.xml','datos/2018-08-02/DSC_0083.xml' ]
 
 def plotBndbox(img, archivoXML, fill):
     """Recibe como parametros <imagen> y <archivo xml> 
@@ -33,4 +36,16 @@ def plotBndbox(img, archivoXML, fill):
                 cv2.rectangle(img,(xmin,ymin),(xmin+width,ymin+height), (255,255,255),thickness)
     return img
 
+
+for i in zip(file,xml):
+    imgO =cv2.imread(i[0])
+ 
+    #archivo xml
+    archivoXML = ET.parse(i[1])
+
+    img = plotBndbox(imgO,archivoXML,False)
+    
+    
+    cv2.imwrite('example/'+str(i[0].split('/')[2].split('.')[0])+'xml.png', img)
+    
 
