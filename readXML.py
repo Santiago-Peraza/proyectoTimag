@@ -46,6 +46,6 @@ for i in zip(file,xml):
     img = plotBndbox(imgO,archivoXML,False)
     
     
-    cv2.imwrite('example/'+str(i[0].split('/')[2].split('.')[0])+'xml.png', img)
+    cv2.imwrite('example/'+str(i[0].split('/')[2].split('.')[0])+'xml.jpg', img)
     
 
